@@ -1,0 +1,85 @@
+# CI Workflow for CurriculumGen-Technical-Syllabus-Generator-CLI-Tool
+
+name: CI Workflow
+
+# Trigger the workflow on push events to the main branch or on pull requests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment
+      # Uses Python 3.10+ as per APEX standards for Data/Scripts/AI
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: 'uv' # Use uv for caching dependencies
+
+      # Step 3: Install dependencies using uv
+      # This will install packages and also cache them for subsequent runs
+      - name: Install dependencies with uv
+        run: | 
+          python -m pip install --upgrade pip
+          uv pip install -r requirements.txt
+          # If dev dependencies are in a separate file (e.g., requirements-dev.txt),
+          # uncomment and adjust the following line:
+          # uv pip install -r requirements-dev.txt
+
+      # Step 4: Lint and format code using Ruff
+      # This step ensures code quality and consistency as per APEX standards.
+      - name: Lint and format with Ruff
+        run: |
+          uv pip install ruff
+          ruff check .
+          ruff format --check .
+
+      # Step 5: Run tests using Pytest
+      # This executes all tests defined in the project.
+      - name: Run tests with Pytest
+        run: |
+          uv pip install pytest
+          pytest
+
+      # Optional Step: Generate and upload code coverage report (if configured with Codecov/Coveralls)
+      # Requires pytest-cov to be installed and configured.
+      # - name: Upload coverage report to Codecov
+      #   uses: codecov/codecov-action@v4
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }} # Ensure you have this secret configured in GitHub
+      #     files: ./coverage.xml # Adjust path if your coverage report is named differently or in another location
+
+      # Optional Step: Build the CLI executable (if applicable and desired)
+      # This step would depend on your chosen build tool for Python CLIs (e.g., setuptools, poetry, hatch)
+      # Example: If using setuptools to create a wheel:
+      # - name: Build wheel
+      #   run: python setup.py sdist bdist_wheel
+
+      # Optional Step: Upload artifacts (e.g., built executables, reports)
+      # - name: Upload artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: curriculumgen-cli-artifacts
+      #     path:
+      #       dist/* # Example: path to built distribution files
+      #       reports/ # Example: path to generated reports
+
+# Notes:
+# - Python version (3.10) is chosen based on the 'DATA / SCRIPTS / AI' scenario in APEX standards (Late 2025).
+# - uv is used for dependency management as per APEX standards.
+# - Ruff is used for linting and formatting for speed and efficiency.
+# - Pytest is used for testing.
+# - Ensure 'requirements.txt' (and potentially 'requirements-dev.txt') exists in the root of the repository.
+# - For Codecov integration, ensure pytest-cov is installed and configured, and the CODECOV_TOKEN secret is set.
+# - Adjust 'path' in 'upload-artifact' to match your project's build output.
