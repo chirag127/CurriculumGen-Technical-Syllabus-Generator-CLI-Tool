@@ -1,0 +1,41 @@
+# Python build artifacts
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Python Virtual Environments
+venv/
+env/
+.venv/
+
+# IDE and Editor specific files
+.vscode/
+.idea/
+*.swp
+*~.swp
+
+# Testing artifacts
+.pytest_cache/
+*.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Linters and formatters (Ruff, Black)
+.ruff_cache/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Secrets (if any were accidentally committed)
+.env
+*.env
+*.secrets
+
+# uv cache
+.uv/
