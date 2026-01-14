@@ -1,0 +1,137 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact • Syllabus</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Config for Glassmorphism -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            glass: 'rgba(255, 255, 255, 0.1)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Optional: Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-xxxx"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-gray-100 flex flex-col">
+
+  <!-- Header -->
+  <header class="py-6 text-center">
+    <h1 class="text-4xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 to-pink-300">
+      Get in Touch
+    </h1>
+    <p class="mt-2 text-lg text-gray-300">Feel free to reach out for collaborations, questions, or just a friendly hello.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center justify-center px-4">
+    <section class="w-full max-w-lg p-8 backdrop-blur-lg bg-glass rounded-xl border border-white/20 shadow-xl">
+      <h2 class="text-2xl font-semibold mb-6 text-center text-white">Contact Information</h2>
+
+      <ul class="space-y-4 text-lg">
+        <!-- Email -->
+        <li class="flex items-center">
+          <i class="fa-solid fa-envelope text-indigo-300 mr-3"></i>
+          <a href="mailto:chiragsinghal127@gmail.com"
+             class="hover:underline hover:text-indigo-200 transition-colors">
+            chiragsinghal127@gmail.com
+          </a>
+        </li>
+
+        <!-- Location -->
+        <li class="flex items-center">
+          <i class="fa-solid fa-location-dot text-indigo-300 mr-3"></i>
+          <span>Bhubaneswar, Odisha, India</span>
+        </li>
+
+        <!-- GitHub -->
+        <li class="flex items-center">
+          <i class="fa-brands fa-github text-indigo-300 mr-3"></i>
+          <a href="https://github.com/chirag127"
+             target="_blank"
+             rel="noopener"
+             class="hover:underline hover:text-indigo-200 transition-colors">
+            github.com/chirag127
+          </a>
+        </li>
+
+        <!-- LinkedIn -->
+        <li class="flex items-center">
+          <i class="fa-brands fa-linkedin text-indigo-300 mr-3"></i>
+          <a href="https://linkedin.com/in/chirag-singhal1"
+             target="_blank"
+             rel="noopener"
+             class="hover:underline hover:text-indigo-200 transition-colors">
+            linkedin.com/in/chirag-singhal1
+          </a>
+        </li>
+
+        <!-- Buy Me a Coffee -->
+        <li class="flex items-center">
+          <i class="fa-solid fa-mug-hot text-indigo-300 mr-3"></i>
+          <a href="https://buymeacoffee.com/WhyIsWhen"
+             target="_blank"
+             rel="noopener"
+             class="hover:underline hover:text-indigo-200 transition-colors">
+            Support Me on Buy Me a Coffee
+          </a>
+        </li>
+      </ul>
+
+      <!-- Optional Contact Form (kept simple) -->
+      <form class="mt-8 space-y-4" onsubmit="return false;">
+        <div>
+          <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
+          <input type="text" id="name" name="name"
+                 class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300 text-white"
+                 placeholder="John Doe">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Your Email</label>
+          <input type="email" id="email" name="email"
+                 class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300 text-white"
+                 placeholder="john@example.com">
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium mb-1">Message</label>
+          <textarea id="message" name="message" rows="4"
+                    class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300 text-white"
+                    placeholder="Write your message..."></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 rounded transition-colors font-medium">
+          Send Message
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center text-sm text-gray-400 bg-black/30 backdrop-blur-sm">
+    © 2026 Chirag Singhal | Designed by Chirag Singhal
+  </footer>
+</body>
+</html>
+```
